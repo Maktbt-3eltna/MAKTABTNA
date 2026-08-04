@@ -3,14 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTBTNA | منصة تعليمية احترافية</title>
-
+<title>MKTBTNA</title>
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
---primary:#6B4E2E; /* بني أغمق */
---bg:#F3E8DB;
+--primary:#5A3E23; /* بني أغمق فخم */
+--bg:#F2E7D8;
 --dark:#111;
 }
 
@@ -24,7 +23,8 @@ body{
 font-family:'Cairo',sans-serif;
 background:var(--bg);
 color:#222;
-line-height:1.9;
+line-height:1.8;
+overflow-x:hidden;
 }
 
 /* NAV */
@@ -33,91 +33,102 @@ position:fixed;
 top:0;
 width:100%;
 background:white;
-padding:15px 30px;
+padding:12px 25px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 5px 20px rgba(0,0,0,.05);
-z-index:999;
+box-shadow:0 3px 15px rgba(0,0,0,.05);
+z-index:1000;
 }
 
 .logo{
 font-weight:800;
-font-size:20px;
+font-size:18px;
 }
 
 .nav-btn{
 background:var(--primary);
 color:white;
 border:none;
-padding:10px 25px;
+padding:8px 20px;
 border-radius:30px;
 cursor:pointer;
 transition:.3s;
 }
 
 .nav-btn:hover{
-opacity:.9;
+transform:scale(1.05);
 }
 
-/* SECTION */
+/* SECTIONS */
 .section{
-max-width:1000px;
+max-width:900px;
 margin:auto;
-padding:120px 20px;
-animation:fadeIn 1s ease;
+padding:80px 20px;
+opacity:0;
+transform:translateY(40px);
+transition:.8s ease;
 }
 
-@keyframes fadeIn{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;transform:translateY(0);}
+.section.show{
+opacity:1;
+transform:translateY(0);
 }
 
-/* HERO */
 .hero{
-padding-top:180px;
+padding-top:120px;
 text-align:center;
 }
 
 .hero h1{
-font-size:36px;
-margin-bottom:20px;
+font-size:28px;
+margin-bottom:15px;
 }
 
 .hero p{
-font-size:20px;
+font-size:18px;
 color:#555;
-margin-bottom:40px;
+margin-bottom:25px;
 }
 
 .hero button{
 background:var(--primary);
 color:white;
-padding:18px 60px;
+padding:15px 40px;
 border:none;
-border-radius:40px;
-font-size:18px;
+border-radius:35px;
 cursor:pointer;
+transition:.3s;
+}
+
+.hero button:hover{
+transform:translateY(-4px);
+box-shadow:0 8px 20px rgba(0,0,0,.2);
 }
 
 /* STATS */
 .stats{
 display:grid;
 grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:60px;
+gap:15px;
+margin-top:40px;
 text-align:center;
 }
 
 .stat{
 background:white;
-padding:40px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
+padding:25px;
+border-radius:15px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.stat:hover{
+transform:translateY(-5px);
 }
 
 .stat h2{
-font-size:36px;
+font-size:28px;
 color:var(--primary);
 }
 
@@ -125,51 +136,64 @@ color:var(--primary);
 .full-img{
 width:100%;
 display:block;
-margin:50px 0;
-border-radius:25px;
-box-shadow:0 15px 50px rgba(0,0,0,.15);
+margin:40px 0;
+border-radius:20px;
+transition:.5s;
 }
 
-/* FEATURES */
+.full-img:hover{
+transform:scale(1.02);
+}
+
+/* FEATURE */
 .feature{
 background:white;
-padding:25px;
-border-radius:20px;
+padding:20px;
+border-radius:15px;
 margin-bottom:15px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-font-size:18px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+cursor:pointer;
 }
 
-/* REVIEWS */
+.feature:hover{
+transform:translateX(-5px);
+}
+
+/* REVIEW */
 .review{
 background:#1f1f1f;
 color:white;
-padding:30px;
-border-radius:25px;
-margin-bottom:20px;
+padding:20px;
+border-radius:15px;
+margin-bottom:15px;
 cursor:pointer;
 transition:.3s;
 }
 
 .review:hover{
-transform:translateY(-5px);
+transform:translateY(-4px);
 }
 
 .stars{
 display:none;
 margin-top:10px;
-font-size:20px;
 color:#f5b301;
 }
 
 /* FAQ */
 .faq-item{
 background:white;
-padding:20px;
-border-radius:20px;
-margin-bottom:15px;
+padding:18px;
+border-radius:15px;
+margin-bottom:10px;
 cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.faq-item:hover{
+transform:translateX(-5px);
 }
 
 .faq-answer{
@@ -181,31 +205,29 @@ color:#555;
 /* CTA */
 .cta{
 text-align:center;
-margin-top:60px;
+margin-top:40px;
 }
 
 .cta button{
 background:var(--primary);
 color:white;
-padding:20px 70px;
+padding:18px 60px;
 border:none;
 border-radius:40px;
-font-size:18px;
 cursor:pointer;
+transition:.3s;
 }
 
-/* FOOTER */
+.cta button:hover{
+transform:scale(1.05);
+}
+
 footer{
 background:#111;
 color:white;
 text-align:center;
-padding:40px;
-margin-top:80px;
-}
-
-@media(max-width:768px){
-.stats{grid-template-columns:1fr}
-.hero h1{font-size:26px}
+padding:30px;
+margin-top:60px;
 }
 </style>
 </head>
@@ -218,8 +240,8 @@ margin-top:80px;
 </nav>
 
 <section class="section hero">
-<h1>تنمية مهارات طفلك بطريقة احترافية في بيئة آمنة بالكامل</h1>
-<p>محتوى تعليمي تفاعلي يساعد طفلك على التعلم والنمو بعيداً عن المحتوى العشوائي</p>
+<h1>منصة تعليمية احترافية لتنمية مهارات طفلك</h1>
+<p>تعلم آمن – محتوى تفاعلي – بدون إعلانات – تشغيل بدون إنترنت</p>
 <button onclick="goBuy()">ابدأ الآن</button>
 
 <div class="stats">
@@ -227,12 +249,10 @@ margin-top:80px;
 <h2 id="clients">0</h2>
 <p>ولي أمر يثق بنا</p>
 </div>
-
 <div class="stat">
 <h2 id="videos">0</h2>
 <p>فيديو تعليمي</p>
 </div>
-
 <div class="stat">
 <h2 id="hours">0</h2>
 <p>ساعة محتوى</p>
@@ -254,55 +274,14 @@ margin-top:80px;
 
 <h2>آراء أولياء الأمور</h2>
 
-<div class="review" onclick="toggleStars(this)">
-المحتوى أحدث فرقًا واضحًا مع طفلي.
-<div class="stars">★★★★★</div>
-</div>
-
-<div class="review" onclick="toggleStars(this)">
-بديل آمن وعملي جدًا.
-<div class="stars">★★★★☆</div>
-</div>
-
-<div class="review" onclick="toggleStars(this)">
-تنظيم ممتاز وجودة عالية.
-<div class="stars">★★★★★</div>
-</div>
+<div id="reviews"></div>
 
 </section>
 
 <section class="section">
 <h2>الأسئلة الشائعة</h2>
 
-<div class="faq-item" onclick="toggleFaq(this)">
-كيف يتم الاستلام؟
-<div class="faq-answer">يتم إرسال رابط التحميل بعد تأكيد الدفع مباشرة.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل تعمل على جميع الأجهزة؟
-<div class="faq-answer">نعم تعمل على الهاتف والكمبيوتر والتابلت.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل يوجد تحديثات مستقبلية؟
-<div class="faq-answer">يتم إضافة محتوى جديد باستمرار.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل المحتوى مناسب لكل الأعمار؟
-<div class="faq-answer">مناسب للأطفال من 3 إلى 10 سنوات.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل يوجد دعم فني؟
-<div class="faq-answer">دعم متاح 24 ساعة يومياً.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل يعمل بدون إنترنت؟
-<div class="faq-answer">نعم بعد التحميل يعمل بدون اتصال.</div>
-</div>
+<div id="faq"></div>
 
 </section>
 
@@ -311,7 +290,7 @@ margin-top:80px;
 </section>
 
 <footer>
-© 2026 MKTBTNA - جميع حقوق النشر محفوظة
+© 2026 MKTBTNA - جميع الحقوق محفوظة
 </footer>
 
 <script>
@@ -319,16 +298,7 @@ function goBuy(){
 window.location.href="checkout.html";
 }
 
-function toggleFaq(el){
-let ans=el.querySelector(".faq-answer");
-ans.style.display=ans.style.display==="block"?"none":"block";
-}
-
-function toggleStars(el){
-let stars=el.querySelector(".stars");
-stars.style.display=stars.style.display==="block"?"none":"block";
-}
-
+/* عداد */
 function animateCounter(id,target){
 let el=document.getElementById(id);
 let count=0;
@@ -345,6 +315,68 @@ el.innerText=count.toLocaleString();
 animateCounter("clients",6320);
 animateCounter("videos",205);
 animateCounter("hours",480);
+
+/* Reveal */
+window.addEventListener("scroll",()=>{
+document.querySelectorAll(".section").forEach(sec=>{
+if(sec.getBoundingClientRect().top<window.innerHeight-100){
+sec.classList.add("show");
+}
+});
+});
+
+/* 13 تعليق */
+const comments=[
+"المحتوى فرق مع طفلي بشكل واضح",
+"بديل آمن تمامًا عن يوتيوب",
+"تنظيم ممتاز وسهل الاستخدام",
+"الدعم سريع جدًا",
+"طفلي بقى يحب وقت التعلم",
+"الجودة عالية جدًا",
+"مناسب لكل الأعمار",
+"سهل التشغيل بدون إنترنت",
+"القصص مؤثرة جدًا",
+"تجربة ممتازة بكل المقاييس",
+"محتوى هادف ومحترم",
+"أرشحه لأي ولي أمر",
+"أفضل استثمار تعليمي لطفلي"
+];
+
+const reviewContainer=document.getElementById("reviews");
+
+comments.forEach(text=>{
+let div=document.createElement("div");
+div.className="review";
+div.innerHTML=text + '<div class="stars">★★★★★</div>';
+div.onclick=function(){
+let s=this.querySelector(".stars");
+s.style.display=s.style.display==="block"?"none":"block";
+}
+reviewContainer.appendChild(div);
+});
+
+/* 6 اسئلة */
+const faqs=[
+["هل يعمل بدون إنترنت؟","نعم بعد التحميل يعمل بدون اتصال."],
+["كيف يتم الاستلام؟","يتم إرسال الرابط بعد تأكيد التحويل."],
+["هل يوجد تحديثات؟","يتم تحديث المحتوى باستمرار."],
+["هل مناسب لكل الأعمار؟","مناسب من 3 إلى 10 سنوات."],
+["هل يوجد دعم فني؟","نعم دعم متاح يوميًا."],
+["هل يعمل على جميع الأجهزة؟","نعم يعمل على الهاتف والكمبيوتر."]
+];
+
+const faqContainer=document.getElementById("faq");
+
+faqs.forEach(item=>{
+let div=document.createElement("div");
+div.className="faq-item";
+div.innerHTML='<div>'+item[0]+'</div><div class="faq-answer">'+item[1]+'</div>';
+div.onclick=function(){
+let ans=this.querySelector(".faq-answer");
+ans.style.display=ans.style.display==="block"?"none":"block";
+}
+faqContainer.appendChild(div);
+});
 </script>
 
 </body>
