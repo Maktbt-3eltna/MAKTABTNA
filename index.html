@@ -3,14 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTBTNA</title>
+<title>MKTBTNA | منصة تعليمية احترافية</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
---primary:#9E7B3E; /* بني أغمق */
+--primary:#6B4E2E; /* بني أغمق */
+--bg:#F3E8DB;
 --dark:#111;
---bg:#F3EBDC;
 }
 
 *{
@@ -23,9 +24,10 @@ body{
 font-family:'Cairo',sans-serif;
 background:var(--bg);
 color:#222;
-line-height:1.8;
+line-height:1.9;
 }
 
+/* NAV */
 nav{
 position:fixed;
 top:0;
@@ -35,7 +37,7 @@ padding:15px 30px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 4px 20px rgba(0,0,0,.05);
+box-shadow:0 5px 20px rgba(0,0,0,.05);
 z-index:999;
 }
 
@@ -51,21 +53,34 @@ border:none;
 padding:10px 25px;
 border-radius:30px;
 cursor:pointer;
+transition:.3s;
 }
 
+.nav-btn:hover{
+opacity:.9;
+}
+
+/* SECTION */
 .section{
-max-width:900px;
+max-width:1000px;
 margin:auto;
-padding:100px 20px;
+padding:120px 20px;
+animation:fadeIn 1s ease;
 }
 
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;transform:translateY(0);}
+}
+
+/* HERO */
 .hero{
-padding-top:140px;
+padding-top:180px;
 text-align:center;
 }
 
 .hero h1{
-font-size:34px;
+font-size:36px;
 margin-bottom:20px;
 }
 
@@ -85,6 +100,7 @@ font-size:18px;
 cursor:pointer;
 }
 
+/* STATS */
 .stats{
 display:grid;
 grid-template-columns:repeat(3,1fr);
@@ -105,14 +121,16 @@ font-size:36px;
 color:var(--primary);
 }
 
+/* IMAGE */
 .full-img{
 width:100%;
 display:block;
-margin:40px 0;
+margin:50px 0;
 border-radius:25px;
 box-shadow:0 15px 50px rgba(0,0,0,.15);
 }
 
+/* FEATURES */
 .feature{
 background:white;
 padding:25px;
@@ -122,14 +140,29 @@ box-shadow:0 10px 30px rgba(0,0,0,.08);
 font-size:18px;
 }
 
+/* REVIEWS */
 .review{
 background:#1f1f1f;
 color:white;
 padding:30px;
 border-radius:25px;
 margin-bottom:20px;
+cursor:pointer;
+transition:.3s;
 }
 
+.review:hover{
+transform:translateY(-5px);
+}
+
+.stars{
+display:none;
+margin-top:10px;
+font-size:20px;
+color:#f5b301;
+}
+
+/* FAQ */
 .faq-item{
 background:white;
 padding:20px;
@@ -145,6 +178,7 @@ margin-top:10px;
 color:#555;
 }
 
+/* CTA */
 .cta{
 text-align:center;
 margin-top:60px;
@@ -160,6 +194,7 @@ font-size:18px;
 cursor:pointer;
 }
 
+/* FOOTER */
 footer{
 background:#111;
 color:white;
@@ -184,7 +219,7 @@ margin-top:80px;
 
 <section class="section hero">
 <h1>تنمية مهارات طفلك بطريقة احترافية في بيئة آمنة بالكامل</h1>
-<p>منصة تعليمية تفاعلية تساعد طفلك على التعلم والنمو بعيداً عن المحتوى العشوائي</p>
+<p>محتوى تعليمي تفاعلي يساعد طفلك على التعلم والنمو بعيداً عن المحتوى العشوائي</p>
 <button onclick="goBuy()">ابدأ الآن</button>
 
 <div class="stats">
@@ -192,10 +227,12 @@ margin-top:80px;
 <h2 id="clients">0</h2>
 <p>ولي أمر يثق بنا</p>
 </div>
+
 <div class="stat">
 <h2 id="videos">0</h2>
 <p>فيديو تعليمي</p>
 </div>
+
 <div class="stat">
 <h2 id="hours">0</h2>
 <p>ساعة محتوى</p>
@@ -215,29 +252,56 @@ margin-top:80px;
 <section class="section">
 <img src="img2.jpg" class="full-img">
 
-<div class="review">المحتوى أحدث فرقًا واضحًا مع طفلي.</div>
-<div class="review">بديل آمن وعملي جداً.</div>
-<div class="review">تنظيم ممتاز وجودة عالية.</div>
+<h2>آراء أولياء الأمور</h2>
+
+<div class="review" onclick="toggleStars(this)">
+المحتوى أحدث فرقًا واضحًا مع طفلي.
+<div class="stars">★★★★★</div>
+</div>
+
+<div class="review" onclick="toggleStars(this)">
+بديل آمن وعملي جدًا.
+<div class="stars">★★★★☆</div>
+</div>
+
+<div class="review" onclick="toggleStars(this)">
+تنظيم ممتاز وجودة عالية.
+<div class="stars">★★★★★</div>
+</div>
+
 </section>
 
 <section class="section">
-<img src="img3.jpg" class="full-img">
-
 <h2>الأسئلة الشائعة</h2>
 
 <div class="faq-item" onclick="toggleFaq(this)">
-هل تعمل على جميع الأجهزة؟
-<div class="faq-answer">نعم تعمل على الهاتف والكمبيوتر بسهولة.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
 كيف يتم الاستلام؟
-<div class="faq-answer">يتم إرسال الرابط بعد تأكيد التحويل.</div>
+<div class="faq-answer">يتم إرسال رابط التحميل بعد تأكيد الدفع مباشرة.</div>
 </div>
 
 <div class="faq-item" onclick="toggleFaq(this)">
-هل يوجد تحديثات؟
-<div class="faq-answer">نعم يتم تحديث المحتوى باستمرار.</div>
+هل تعمل على جميع الأجهزة؟
+<div class="faq-answer">نعم تعمل على الهاتف والكمبيوتر والتابلت.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+هل يوجد تحديثات مستقبلية؟
+<div class="faq-answer">يتم إضافة محتوى جديد باستمرار.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+هل المحتوى مناسب لكل الأعمار؟
+<div class="faq-answer">مناسب للأطفال من 3 إلى 10 سنوات.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+هل يوجد دعم فني؟
+<div class="faq-answer">دعم متاح 24 ساعة يومياً.</div>
+</div>
+
+<div class="faq-item" onclick="toggleFaq(this)">
+هل يعمل بدون إنترنت؟
+<div class="faq-answer">نعم بعد التحميل يعمل بدون اتصال.</div>
 </div>
 
 </section>
@@ -260,212 +324,9 @@ let ans=el.querySelector(".faq-answer");
 ans.style.display=ans.style.display==="block"?"none":"block";
 }
 
-function animateCounter(id,target){
-let el=document.getElementById(id);
-let count=0;
-let interval=setInterval(()=>{
-count+=Math.ceil(target/100);
-if(count>=target){
-count=target;
-clearInterval(interval);
-}
-el.innerText=count.toLocaleString();
-},20);
-}
-
-animateCounter("clients",6356);
-animateCounter("videos",205);
-animateCounter("hours",480);
-</script>
-
-</body>
-</ht}
-
-.stat h2{
-font-size:40px;
-color:var(--primary);
-margin-bottom:10px;
-}
-
-/* FEATURES */
-.features{
-margin-top:60px;
-}
-
-.feature{
-background:white;
-padding:30px;
-border-radius:25px;
-margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-font-size:18px;
-}
-
-/* REVIEWS */
-.review{
-background:#1f1f1f;
-color:white;
-padding:35px;
-border-radius:25px;
-margin-bottom:25px;
-font-size:18px;
-}
-
-/* FAQ */
-.faq-item{
-background:white;
-padding:25px;
-border-radius:20px;
-margin-bottom:20px;
-cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-.faq-question{
-font-weight:700;
-font-size:18px;
-}
-
-.faq-answer{
-display:none;
-margin-top:15px;
-color:#555;
-}
-
-/* CTA */
-.cta{
-text-align:center;
-margin-top:80px;
-}
-
-.cta button{
-padding:22px 70px;
-border:none;
-border-radius:40px;
-background:var(--primary);
-color:white;
-font-size:18px;
-cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
-margin-top:120px;
-}
-
-/* RESPONSIVE */
-@media(max-width:768px){
-.stats{grid-template-columns:1fr}
-.hero h1{font-size:28px}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="logo">MKTBTNA</div>
-<button class="nav-btn" onclick="goBuy()">اشترك الآن</button>
-</nav>
-
-<section class="section hero">
-<h1>منصة تعليمية متكاملة لتنمية مهارات طفلك</h1>
-<p>تعلم آمن – محتوى تفاعلي – بدون إعلانات – تشغيل بدون إنترنت</p>
-<button onclick="goBuy()">ابدأ الآن</button>
-
-<div class="stats">
-<div class="stat">
-<h2 id="clients">0</h2>
-<p>ولي أمر يثق بنا</p>
-</div>
-
-<div class="stat">
-<h2 id="videos">0</h2>
-<p>فيديو تعليمي</p>
-</div>
-
-<div class="stat">
-<h2 id="hours">0</h2>
-<p>ساعة محتوى</p>
-</div>
-</div>
-
-</section>
-
-<section class="section">
-<img src="img1.jpg" class="full-img">
-
-<h2>ماذا سيستفيد طفلك؟</h2>
-
-<div class="features">
-<div class="feature">تعلم القراءة والكتابة بأسلوب مبسط</div>
-<div class="feature">فيديوهات حركة وتفاعل</div>
-<div class="feature">قصص تربوية هادفة</div>
-<div class="feature">بدون إعلانات مزعجة</div>
-<div class="feature">تشغيل بدون إنترنت</div>
-<div class="feature">تحديثات مستمرة للمحتوى</div>
-</div>
-
-</section>
-
-<section class="section">
-<img src="img2.jpg" class="full-img">
-
-<h2>آراء أولياء الأمور</h2>
-
-<div class="review">المحتوى فرق مع طفلي بشكل واضح خلال أسابيع قليلة.</div>
-<div class="review">بديل آمن عن المنصات المفتوحة.</div>
-<div class="review">تنظيم ممتاز وجودة عالية.</div>
-
-</section>
-
-<section class="section">
-<img src="img3.jpg" class="full-img">
-
-<h2>الأسئلة الشائعة</h2>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-<div class="faq-question">كيف يتم الاستلام؟</div>
-<div class="faq-answer">يتم إرسال رابط التحميل بعد تأكيد الدفع مباشرة.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-<div class="faq-question">هل تعمل على جميع الأجهزة؟</div>
-<div class="faq-answer">نعم تعمل على الهاتف والكمبيوتر والتابلت.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-<div class="faq-question">هل يوجد تحديثات مستقبلية؟</div>
-<div class="faq-answer">يتم إضافة محتوى جديد بشكل دوري.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-<div class="faq-question">هل المحتوى مناسب لكل الأعمار؟</div>
-<div class="faq-answer">مناسب للأطفال من 3 إلى 10 سنوات.</div>
-</div>
-
-</section>
-
-<section class="section cta">
-<button onclick="goBuy()">انتقل إلى صفحة الشراء</button>
-</section>
-
-<footer>
-© 2026 MKTBTNA - جميع حقوق النشر محفوظة
-</footer>
-
-<script>
-function goBuy(){
-window.location.href="checkout.html";
-}
-
-function toggleFaq(el){
-let ans=el.querySelector(".faq-answer");
-ans.style.display=ans.style.display==="block"?"none":"block";
+function toggleStars(el){
+let stars=el.querySelector(".stars");
+stars.style.display=stars.style.display==="block"?"none":"block";
 }
 
 function animateCounter(id,target){
@@ -481,540 +342,7 @@ el.innerText=count.toLocaleString();
 },20);
 }
 
-animateCounter("clients",6356);
-animateCounter("videos",205);
-animateCounter("hours",480);
-</script>
-
-</body>
-</html>margin-top:40px;
-box-shadow:0 20px 60px rgba(0,0,0,.2);
-}
-
-/* STATS */
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:50px;
-text-align:center;
-}
-
-.stat{
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 15px 50px rgba(0,0,0,.1);
-}
-
-.stat h2{
-font-size:40px;
-color:var(--primary);
-}
-
-/* FEATURES */
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-margin-top:60px;
-}
-
-.feature{
-background:white;
-padding:30px;
-border-radius:25px;
-box-shadow:0 15px 40px rgba(0,0,0,.08);
-}
-
-/* PRICING */
-.pricing{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:60px;
-}
-
-.price-card{
-background:white;
-padding:40px;
-border-radius:30px;
-text-align:center;
-box-shadow:0 20px 60px rgba(0,0,0,.1);
-transition:.4s;
-}
-
-.price-card:hover{
-transform:translateY(-8px);
-}
-
-.price{
-font-size:30px;
-font-weight:800;
-color:var(--primary);
-margin-top:15px;
-}
-
-/* TESTIMONIAL */
-.testimonial{
-background:#1f1f1f;
-color:white;
-padding:50px;
-border-radius:30px;
-margin-top:40px;
-}
-
-/* FAQ */
-.faq-item{
-background:white;
-padding:30px;
-border-radius:25px;
-margin-top:20px;
-cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-.faq-answer{
-display:none;
-margin-top:15px;
-color:#555;
-}
-
-/* CTA */
-.cta{
-text-align:center;
-margin-top:60px;
-}
-
-.cta button{
-padding:20px 60px;
-border:none;
-border-radius:40px;
-background:var(--primary);
-color:white;
-font-size:18px;
-cursor:pointer;
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
-margin-top:120px;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-.stats{grid-template-columns:1fr}
-.features{grid-template-columns:1fr}
-.pricing{grid-template-columns:1fr}
-.hero h1{font-size:28px}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="logo">MKTBTNA</div>
-<button onclick="goBuy()">اشترك الآن</button>
-</nav>
-
-<section class="hero">
-<h1>
-منصة تعليمية متكاملة لتنمية مهارات طفلك بطريقة احترافية
-</h1>
-<p>
-محتوى تفاعلي آمن يساعد طفلك على التعلم والاستمتاع في نفس الوقت
-</p>
-<button onclick="goBuy()">ابدأ الآن</button>
-</section>
-
-<section class="section">
-<h2>إحصائياتنا</h2>
-
-<div class="stats">
-<div class="stat">
-<h2 id="num1">0</h2>
-<p>ولي أمر يثق بنا</p>
-</div>
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MKTBTNA | منصة تعليمية متكاملة للأطفال</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
-
-<style>
-:root{
---primary:#C8A96A;
---dark:#111;
---bg:#F7F1E8;
-}
-
-*{box-sizing:border-box;margin:0;padding:0}
-
-body{
-font-family:'Cairo',sans-serif;
-background:var(--bg);
-color:#222;
-overflow-x:hidden;
-}
-
-/* NAV */
-nav{
-position:fixed;
-top:0;
-width:100%;
-background:rgba(255,255,255,.85);
-backdrop-filter:blur(12px);
-padding:15px 40px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:1000;
-box-shadow:0 4px 20px rgba(0,0,0,.05);
-}
-
-.logo{
-font-weight:800;
-font-size:20px;
-}
-
-.nav-btn{
-background:var(--primary);
-color:white;
-border:none;
-padding:10px 25px;
-border-radius:30px;
-cursor:pointer;
-transition:.3s;
-}
-
-.nav-btn:hover{transform:scale(1.05)}
-
-section{
-max-width:1100px;
-margin:auto;
-padding:120px 20px;
-opacity:0;
-transform:translateY(50px);
-transition:1s ease;
-}
-
-section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-/* HERO */
-.hero{
-text-align:center;
-padding-top:180px;
-}
-
-.badge{
-display:inline-block;
-background:rgba(200,169,106,.2);
-padding:8px 20px;
-border-radius:30px;
-margin-bottom:20px;
-font-weight:600;
-}
-
-.hero h1{
-font-size:42px;
-line-height:1.4;
-margin-bottom:20px;
-}
-
-.hero p{
-font-size:18px;
-color:#555;
-max-width:700px;
-margin:auto;
-}
-
-.hero-btn{
-margin-top:40px;
-padding:18px 50px;
-border:none;
-border-radius:40px;
-background:var(--primary);
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
-
-.hero-btn:hover{
-transform:translateY(-5px);
-box-shadow:0 15px 40px rgba(0,0,0,.2);
-}
-
-/* STATS */
-.stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:60px;
-text-align:center;
-}
-
-.stat{
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 15px 50px rgba(0,0,0,.08);
-}
-
-.stat h2{
-font-size:40px;
-color:var(--primary);
-margin-bottom:10px;
-}
-
-/* IMAGE BLOCK */
-.image-block{
-margin-top:80px;
-}
-
-.image-block img{
-width:100%;
-border-radius:30px;
-box-shadow:0 25px 70px rgba(0,0,0,.2);
-}
-
-/* FEATURES */
-.features{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:30px;
-margin-top:60px;
-}
-
-.feature{
-background:white;
-padding:30px;
-border-radius:25px;
-box-shadow:0 15px 50px rgba(0,0,0,.08);
-transition:.3s;
-cursor:pointer;
-}
-
-.feature:hover{
-transform:translateY(-8px);
-}
-
-/* TRUST */
-.trust{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:30px;
-margin-top:80px;
-}
-
-.trust-box{
-background:white;
-padding:40px;
-border-radius:25px;
-box-shadow:0 15px 50px rgba(0,0,0,.08);
-text-align:center;
-}
-
-/* FAQ */
-.faq-item{
-background:white;
-padding:30px;
-border-radius:25px;
-margin-top:20px;
-cursor:pointer;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
-
-.faq-answer{
-display:none;
-margin-top:15px;
-color:#555;
-}
-
-/* CTA */
-.cta{
-text-align:center;
-margin-top:80px;
-}
-
-.cta button{
-padding:20px 60px;
-border:none;
-border-radius:40px;
-background:var(--primary);
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-}
-
-.cta button:hover{
-transform:scale(1.05);
-}
-
-/* FOOTER */
-footer{
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
-margin-top:120px;
-}
-
-/* RESPONSIVE */
-@media(max-width:900px){
-.stats,.features,.trust{grid-template-columns:1fr}
-.hero h1{font-size:28px}
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="logo">MKTBTNA</div>
-<button class="nav-btn" onclick="goBuy()">اشترك الآن</button>
-</nav>
-
-<section class="hero">
-<div class="badge">منصة تعليمية موثوقة</div>
-
-<h1>
-تنمية مهارات طفلك بطريقة احترافية  
-في بيئة آمنة بالكامل
-</h1>
-
-<p>
-محتوى تفاعلي شامل يساعد طفلك على التعلم والنمو بعيداً عن المحتوى العشوائي
-</p>
-
-<button class="hero-btn" onclick="goBuy()">ابدأ الآن</button>
-
-<div class="stats">
-<div class="stat">
-<h2 id="clients">0</h2>
-<p>ولي أمر يثق بنا</p>
-</div>
-
-<div class="stat">
-<h2 id="videos">0</h2>
-<p>فيديو تعليمي</p>
-</div>
-
-<div class="stat">
-<h2 id="hours">0</h2>
-<p>ساعة محتوى</p>
-</div>
-</div>
-
-</section>
-
-<section>
-<div class="image-block">
-<img src="img1.jpg">
-</div>
-
-<h2>ماذا نقدم داخل المنصة؟</h2>
-
-<div class="features">
-<div class="feature">تعلم القراءة والكتابة بأسلوب مبسط</div>
-<div class="feature">فيديوهات حركة وتنشيط ذهني</div>
-<div class="feature">قصص تربوية مناسبة للأطفال</div>
-<div class="feature">محتوى بدون إعلانات</div>
-</div>
-</section>
-
-<section>
-<div class="image-block">
-<img src="img2.jpg">
-</div>
-
-<h2>ضمان وثقة</h2>
-
-<div class="trust">
-<div class="trust-box">دعم فني 24 ساعة</div>
-<div class="trust-box">تحديثات مستمرة</div>
-<div class="trust-box">استجابة سريعة</div>
-</div>
-</section>
-
-<section>
-<h2>الأسئلة الشائعة</h2>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-كيف يتم الاستلام؟
-<div class="faq-answer">
-يتم إرسال رابط التحميل فور تأكيد التحويل.
-</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل تعمل على جميع الأجهزة؟
-<div class="faq-answer">
-نعم تعمل على الهاتف والكمبيوتر والتابلت.
-</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل يوجد تحديثات مستقبلية؟
-<div class="faq-answer">
-يتم إضافة محتوى جديد بشكل دوري.
-</div>
-</div>
-
-</section>
-
-<section class="cta">
-<button onclick="goBuy()">انتقل إلى صفحة الشراء</button>
-</section>
-
-<footer>
-© 2026 MKTBTNA - جميع حقوق النشر محفوظة
-</footer>
-
-<script>
-function goBuy(){
-window.location.href="checkout.html";
-}
-
-function toggleFaq(el){
-let ans=el.querySelector(".faq-answer");
-ans.style.display=ans.style.display==="block"?"none":"block";
-}
-
-function animateCounter(id,target){
-let el=document.getElementById(id);
-let count=0;
-let interval=setInterval(()=>{
-count+=Math.ceil(target/100);
-if(count>=target){
-count=target;
-clearInterval(interval);
-}
-el.innerText=count.toLocaleString();
-},20);
-}
-
-window.addEventListener("scroll",()=>{
-document.querySelectorAll("section").forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100){
-sec.classList.add("show");
-}
-});
-});
-
-animateCounter("clients",6356);
+animateCounter("clients",6320);
 animateCounter("videos",205);
 animateCounter("hours",480);
 </script>
