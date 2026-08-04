@@ -4,13 +4,12 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>MKTBTNA</title>
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;800&display=swap" rel="stylesheet">
 
 <style>
 :root{
---primary:#4A2F1B; /* بني غامق */
---bg:#F3E6D7;
---dark:#111;
+--primary:#4A2F1B;
+--bg:#F2E6D8;
 }
 
 *{
@@ -19,26 +18,28 @@ margin:0;
 padding:0;
 }
 
-body{
+html,body{
+width:100%;
+overflow-x:hidden;
 font-family:'Cairo',sans-serif;
 background:var(--bg);
 color:#222;
-overflow-x:hidden;
-line-height:1.8;
 }
 
 /* NAV */
 nav{
 position:fixed;
 top:0;
+right:0;
+left:0;
 width:100%;
 background:white;
-padding:15px 30px;
+padding:15px 20px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-box-shadow:0 5px 20px rgba(0,0,0,.05);
-z-index:999;
+box-shadow:0 3px 15px rgba(0,0,0,.05);
+z-index:1000;
 }
 
 .logo{
@@ -50,132 +51,96 @@ font-size:18px;
 background:var(--primary);
 color:white;
 border:none;
-padding:10px 25px;
+padding:8px 20px;
 border-radius:30px;
 cursor:pointer;
-transition:.3s;
 }
 
-.nav-btn:hover{
-transform:scale(1.05);
-}
-
-/* SECTIONS */
+/* SECTION */
 .section{
-max-width:1000px;
-margin:auto;
-padding:120px 25px;
-opacity:0;
-transform:translateY(50px);
-transition:1s ease;
-}
-
-.section.show{
-opacity:1;
-transform:translateY(0);
-}
-
-.hero{
-padding-top:160px;
+width:100%;
+padding:100px 20px;
 text-align:center;
 }
 
+/* HERO */
+.hero{
+padding-top:150px;
+}
+
 .hero h1{
-font-size:34px;
-margin-bottom:20px;
+font-size:28px;
+margin-bottom:15px;
 }
 
 .hero p{
-font-size:20px;
+font-size:18px;
 color:#555;
-margin-bottom:30px;
+margin-bottom:25px;
 }
 
 .hero button{
 background:var(--primary);
 color:white;
-padding:18px 55px;
+padding:15px 45px;
 border:none;
-border-radius:40px;
+border-radius:35px;
 cursor:pointer;
-transition:.3s;
-}
-
-.hero button:hover{
-transform:translateY(-5px);
-box-shadow:0 10px 25px rgba(0,0,0,.2);
-}
-
-.full-img{
-width:100%;
-display:block;
-margin:50px 0;
-border-radius:25px;
-transition:.5s;
-}
-
-.full-img:hover{
-transform:scale(1.02);
 }
 
 /* STATS */
 .stats{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-margin-top:50px;
-text-align:center;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:15px;
+margin-top:40px;
 }
 
 .stat{
 background:white;
-padding:30px;
-border-radius:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.stat:hover{
-transform:translateY(-8px);
+padding:25px;
+border-radius:15px;
+width:30%;
+min-width:120px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
 }
 
 .stat h2{
-font-size:30px;
 color:var(--primary);
+font-size:26px;
 }
 
-/* INFO BLOCK */
-.info-box{
+/* FULL WIDTH IMAGE */
+.full-img{
+width:100vw;   /* عرض الشاشة كامل */
+max-width:100%;
+display:block;
+margin:40px 0;
+}
+
+/* FEATURES */
+.feature{
 background:white;
-padding:30px;
-border-radius:20px;
-margin-bottom:20px;
-box-shadow:0 10px 30px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.info-box:hover{
-transform:translateX(-10px);
+padding:20px;
+border-radius:15px;
+margin:10px 0;
+box-shadow:0 5px 15px rgba(0,0,0,.08);
 }
 
 /* FAQ */
 .faq-item{
 background:white;
-padding:20px;
-border-radius:20px;
-margin-bottom:15px;
+padding:15px;
+border-radius:12px;
+margin:10px 0;
 cursor:pointer;
 box-shadow:0 5px 15px rgba(0,0,0,.08);
-transition:.3s;
-}
-
-.faq-item:hover{
-transform:translateX(-5px);
 }
 
 .faq-answer{
 display:none;
-margin-top:10px;
+margin-top:8px;
 color:#555;
 }
 
@@ -183,24 +148,19 @@ color:#555;
 .comment{
 background:#1f1f1f;
 color:white;
-padding:20px;
-border-radius:20px;
-margin-bottom:15px;
-transition:.3s;
-}
-
-.comment:hover{
-transform:translateY(-5px);
+padding:15px;
+border-radius:12px;
+margin:10px 0;
 }
 
 .add-comment{
-margin-top:30px;
+margin-top:20px;
 }
 
 .add-comment input{
 width:100%;
-padding:10px;
-border-radius:10px;
+padding:8px;
+border-radius:8px;
 border:1px solid #ccc;
 margin-bottom:10px;
 }
@@ -209,17 +169,18 @@ margin-bottom:10px;
 background:var(--primary);
 color:white;
 border:none;
-padding:10px 25px;
-border-radius:30px;
+padding:8px 20px;
+border-radius:25px;
 cursor:pointer;
 }
 
+/* FOOTER */
 footer{
+width:100%;
 background:#111;
 color:white;
 text-align:center;
-padding:40px;
-margin-top:80px;
+padding:25px 0;
 }
 </style>
 </head>
@@ -233,7 +194,7 @@ margin-top:80px;
 
 <section class="section hero">
 <h1>منصة تعليمية احترافية لتنمية مهارات طفلك</h1>
-<p>محتوى تفاعلي شامل يساعد طفلك على التعلم والنمو في بيئة آمنة بالكامل</p>
+<p>تعلم آمن – محتوى تفاعلي – تشغيل بدون إنترنت</p>
 <button onclick="goBuy()">ابدأ الآن</button>
 
 <div class="stats">
@@ -241,10 +202,12 @@ margin-top:80px;
 <h2 id="clients">0</h2>
 <p>ولي أمر يثق بنا</p>
 </div>
+
 <div class="stat">
 <h2 id="videos">0</h2>
 <p>فيديو تعليمي</p>
 </div>
+
 <div class="stat">
 <h2 id="hours">0</h2>
 <p>ساعة محتوى</p>
@@ -255,45 +218,28 @@ margin-top:80px;
 <section class="section">
 <img src="img1.jpg" class="full-img">
 
-<div class="info-box">تعلم القراءة والكتابة بأسلوب مبسط</div>
-<div class="info-box">فيديوهات حركة وتفاعل تنشط الطفل</div>
-<div class="info-box">قصص تربوية مناسبة للأطفال</div>
-<div class="info-box">تشغيل بدون إنترنت بعد التحميل</div>
+<div class="feature">تعلم القراءة والكتابة بأسلوب مبسط</div>
+<div class="feature">فيديوهات حركة وتنشيط ذهني</div>
+<div class="feature">قصص تربوية هادفة</div>
+<div class="feature">تشغيل بدون إنترنت بعد التحميل</div>
 </section>
 
 <section class="section">
-<img src="img2.jpg" class="full-img">
-
 <h2>الأسئلة الشائعة</h2>
 
 <div class="faq-item" onclick="toggleFaq(this)">
 هل يعمل بدون إنترنت؟
-<div class="faq-answer">نعم يعمل بعد التحميل مباشرة.</div>
+<div class="faq-answer">نعم بعد التحميل يعمل مباشرة.</div>
 </div>
 
 <div class="faq-item" onclick="toggleFaq(this)">
 كيف يتم الاستلام؟
-<div class="faq-answer">يتم إرسال الرابط بعد تأكيد التحويل.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل يوجد تحديثات؟
-<div class="faq-answer">يتم تحديث المحتوى باستمرار.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل مناسب لكل الأعمار؟
-<div class="faq-answer">مناسب من 3 إلى 10 سنوات.</div>
+<div class="faq-answer">يتم إرسال الرابط بعد تأكيد الدفع.</div>
 </div>
 
 <div class="faq-item" onclick="toggleFaq(this)">
 هل يوجد دعم فني؟
-<div class="faq-answer">دعم متاح يوميًا.</div>
-</div>
-
-<div class="faq-item" onclick="toggleFaq(this)">
-هل يعمل على كل الأجهزة؟
-<div class="faq-answer">نعم يعمل على الهاتف والكمبيوتر.</div>
+<div class="faq-answer">نعم دعم متاح يوميًا.</div>
 </div>
 
 </section>
@@ -341,33 +287,15 @@ animateCounter("clients",6320);
 animateCounter("videos",205);
 animateCounter("hours",480);
 
-/* Reveal */
-window.addEventListener("scroll",()=>{
-document.querySelectorAll(".section").forEach(sec=>{
-if(sec.getBoundingClientRect().top<window.innerHeight-100){
-sec.classList.add("show");
-}
-});
-});
-
-/* Comments */
-const initialComments=[
-"منصة ممتازة ومحتوى محترم جدًا",
-"ابني بقى يحب وقت التعلم",
-"أفضل بديل آمن للأطفال",
-"تنظيم رائع وسهل الاستخدام",
-"الدعم سريع ومتعاون",
-"تجربة ممتازة بكل المقاييس"
-];
-
+const comments=["منصة ممتازة","تجربة رائعة","محتوى مفيد","أنصح بها","أفضل اختيار","آمنة جدًا"];
 const container=document.getElementById("comments");
 
-function renderComments(){
+function render(){
 container.innerHTML="";
-initialComments.forEach(text=>{
+comments.forEach(c=>{
 let div=document.createElement("div");
 div.className="comment";
-div.innerText=text;
+div.innerText=c;
 container.appendChild(div);
 });
 }
@@ -375,13 +303,13 @@ container.appendChild(div);
 function addComment(){
 let input=document.getElementById("newComment");
 if(input.value.trim()!==""){
-initialComments.unshift(input.value);
+comments.unshift(input.value);
 input.value="";
-renderComments();
+render();
 }
 }
 
-renderComments();
+render();
 </script>
 
 </body>
